@@ -47,21 +47,23 @@
   }
 
   // ---------- progress indicator ----------
-  // Progress = how many of the 5 required groups are completed.
+  // Progress = how many of the 7 required groups are completed.
   function updateProgress() {
     var done = 0;
     if (value("fullName")) done++;
+    if (value("usn")) done++;
+    if (value("email")) done++;
     if (value("ideaName")) done++;
     if (radioValue("appType")) done++;
     if (value("ideaExplain")) done++;
     if (value("problem")) done++;
-    var pct = Math.round((done / 5) * 100);
+    var pct = Math.round((done / 7) * 100);
     if (progressFill) progressFill.style.width = pct + "%";
     if (progressWrap) progressWrap.setAttribute("aria-valuenow", String(pct));
     if (progressText) {
-      progressText.textContent = done === 5
-        ? "All 5 required fields completed — ready to submit!"
-        : done + " of 5 required fields completed";
+      progressText.textContent = done === 7
+        ? "All 7 required fields completed — ready to submit!"
+        : done + " of 7 required fields completed";
     }
   }
   form.addEventListener("input", updateProgress);
@@ -102,8 +104,11 @@
 
     if (!value("fullName")) fail("fullName", "Please enter your full name."); else pass("fullName");
 
+    if (!value("usn")) fail("usn", "Please enter your USN."); else pass("usn");
+
     var email = value("email");
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) fail("email", "That email address doesn't look complete — check it or leave the field empty."); else pass("email");
+    if (!email) fail("email", "Please enter your email address.");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) fail("email", "That email address doesn't look complete — please check it."); else pass("email");
 
     if (!value("ideaName")) fail("ideaName", "Please give your idea or application a name."); else pass("ideaName");
 
@@ -125,7 +130,7 @@
     return ok;
   }
 
-  ["fullName", "email", "ideaName", "ideaExplain", "problem"].forEach(function (id) {
+  ["fullName", "usn", "email", "ideaName", "ideaExplain", "problem"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener("input", function () { setError(id, ""); });
   });

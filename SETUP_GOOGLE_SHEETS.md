@@ -112,7 +112,7 @@ Every submission carries a unique Submission ID (stored in the sheet's second co
 | Form says "isn't connected yet" | `js/config.js` still has the placeholder, or the pasted URL isn't a `script.google.com/macros/s/…/exec` URL. |
 | Success message but no row in the sheet | Check you're looking at the **`Website Submissions`** tab; confirm the deployment's "Execute as" is **Me**; re-check Test 1. |
 | Test 1 shows a Google sign-in / authorization page | The deployment's "Who has access" isn't **Anyone**, or you haven't authorized the script yet. Redeploy with the Step 3 settings. |
-| It worked, then stopped after editing Code.gs | You need a **new deployment** after every code change (Step 3 note). |
+| It worked, then stopped after editing Code.gs | Code edits need a **new version** of the deployment: Deploy → Manage deployments → ✏️ Edit → Version: **New version** → Deploy. This keeps the **same `/exec` URL**, so `js/config.js` doesn't change. (A brand-new deployment creates a *different* URL.) |
 | 401 / 403 style error page at the URL | Redeploy → New deployment, "Who has access: Anyone". |
 
 ## Privacy note

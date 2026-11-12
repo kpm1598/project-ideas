@@ -65,9 +65,9 @@ Then open http://localhost:8000 in your browser.
 ## The submission form
 
 - All 12 original questions, grouped into 4 sections: Personal Information · Project Overview · Idea Description · AI and Collaboration. Application Type, AI involvement and Collaboration all use selectable cards with the original choices.
-- Required: Full Name, Project Idea / Application Name, Application Type, Explain Your Idea, What Problem Does Your Idea Solve? Everything else is optional (email is format-checked only if filled in).
+- Required: Full Name, USN, Email Address, Project Idea / Application Name, Application Type, Explain Your Idea, What Problem Does Your Idea Solve? Everything else is optional (email must also be in a valid format).
 - Application Type uses selectable cards with the original 6 choices; AI and Collaboration use pill-style radio choices (Yes / No / Maybe / Not Sure and Yes / No / Maybe).
-- Sections: Personal Information · Project Overview · Idea Description · AI and Collaboration, with a live progress indicator for the 5 required fields and character counters on the long-text answers (Explain 1200, Problem 1000, Features 1000, Comments 600).
+- Sections: Personal Information · Project Overview · Idea Description · AI and Collaboration, with a live progress indicator for the 7 required fields and character counters on the long-text answers (Explain 1200, Problem 1000, Features 1000, Comments 600).
 - Client-side validation with inline messages, a loading state on the submit button, and duplicate protection at two levels (the button locks while submitting, and every submission carries a unique ID the Apps Script deduplicates on, so retries can't create double rows).
 - The success confirmation appears **only** when the Apps Script backend replies `{"result":"success"}` — any network, HTTP or script error shows the error state and keeps the visitor's answers in the form.
 - There is **no Google Forms embed anywhere** in this project — the form is fully custom HTML/CSS/JS.

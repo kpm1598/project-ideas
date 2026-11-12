@@ -70,7 +70,7 @@ function doPost(e) {
   try {
     var p = (e && e.parameter) || {};
     // Server-side check of the required fields (frontend validates too).
-    if (!p.fullName || !p.ideaName || !p.appType || !p.ideaExplain || !p.problem) {
+    if (!p.fullName || !p.usn || !p.email || !p.ideaName || !p.appType || !p.ideaExplain || !p.problem) {
       return json_({ result: "error", error: "Missing required fields." });
     }
     var sheet = getSheet_();

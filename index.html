@@ -220,7 +220,7 @@
             <div class="form-progress" aria-live="polite">
               <div class="form-progress-head">
                 <span class="form-progress-title">Your progress</span>
-                <span class="form-progress-text" id="formProgressText">0 of 5 required fields completed</span>
+                <span class="form-progress-text" id="formProgressText">0 of 7 required fields completed</span>
               </div>
               <div class="form-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="formProgressBarWrap" aria-label="Form completion progress">
                 <div class="form-progress-fill" id="formProgressFill"></div>
@@ -241,12 +241,13 @@
 
               <div class="field-row">
                 <div class="field">
-                  <label for="usn">USN <span class="optional">(optional)</span></label>
-                  <input type="text" id="usn" name="usn" placeholder="e.g. 1DS23CS001" autocomplete="off" />
+                  <label for="usn">USN <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="usn" name="usn" placeholder="e.g. 1DS23CS001" autocomplete="off" required aria-describedby="err-usn" />
+                  <p class="field-error" id="err-usn" role="alert" hidden></p>
                 </div>
                 <div class="field">
-                  <label for="email">Email Address <span class="optional">(optional)</span></label>
-                  <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-describedby="err-email" />
+                  <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="err-email" />
                   <p class="field-error" id="err-email" role="alert" hidden></p>
                 </div>
               </div>
